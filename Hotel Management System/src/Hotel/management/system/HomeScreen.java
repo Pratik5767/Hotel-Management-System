@@ -5,12 +5,16 @@ import javax.swing.JLabel;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class HomeScreen extends JFrame{
+public class HomeScreen extends JFrame implements ActionListener {
 
+	JButton next;
+	
 	HomeScreen() {
 		setLayout(null);
 		
@@ -30,10 +34,11 @@ public class HomeScreen extends JFrame{
 		text.setFont(new Font("serif", Font.PLAIN, 50));
 		image.add(text);
 		
-		JButton next = new JButton("Next");
+		next = new JButton("Next");
 		next.setBounds(1150, 450, 110, 35);
 		next.setBackground(Color.WHITE);
 		next.setFont(new Font("serif", Font.PLAIN, 20));
+		next.addActionListener(this);
 		image.add(next);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,9 +61,14 @@ public class HomeScreen extends JFrame{
 		}
 	}
 	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		setVisible(false);
+		new Login().setVisible(true);
+	}
+	
 	public static void main(String[] args) {
 		
 		new HomeScreen();
 	}
-
 }
