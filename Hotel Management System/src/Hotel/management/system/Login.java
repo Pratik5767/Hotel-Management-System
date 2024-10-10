@@ -4,15 +4,20 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Login extends JFrame implements ActionListener {
 	
+	JTextField userTextField;
+	JPasswordField passTextField;
 	JButton login, cancel;
 
 	Login() {
@@ -25,7 +30,7 @@ public class Login extends JFrame implements ActionListener {
 		user.setBounds(40, 20, 100, 30);
 		add(user);
 		
-		JTextField userTextField = new JTextField();
+		userTextField = new JTextField();
 		userTextField.setBounds(150, 20, 150, 30);
 		add(userTextField);
 		
@@ -33,7 +38,7 @@ public class Login extends JFrame implements ActionListener {
 		pass.setBounds(40, 70, 100, 30);
 		add(pass);
 		
-		JTextField passTextField = new JTextField();
+		passTextField = new JPasswordField();
 		passTextField.setBounds(150, 70, 150, 30);
 		add(passTextField);
 		
@@ -65,6 +70,26 @@ public class Login extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == login) {
+			String user = userTextField.getText();
+			String pass = passTextField.getText();
+			
+			try {
+				MyConnection connection = new MyConnection();
+				String query = "select * from login where userName='"+user+"' and password='"+pass+"'";
+				//Executing MySQL queries
+				ResultSet res = connection.statement.executeQuery(query);
+				
+				if(res.next()) {
+					setVisible(false);
+					new DashBoard().setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Invalid username or password");
+					userTextField.setText("");
+					passTextField.setText("");
+				}
+			} catch(Exception e1) {
+				System.out.println(e);
+			}
 			
 		} else if(e.getSource() == cancel) {
 			System.exit(0);
