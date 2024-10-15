@@ -41,19 +41,23 @@ public class DashBoard extends JFrame implements ActionListener {
 		menuBar.add(hotel);
 		
 		JMenuItem reception = new JMenuItem("RECEPTION");
+		reception.addActionListener(this);
 		hotel.add(reception);
 
 		JMenu admin = new JMenu("Admin");
 		admin.setForeground(Color.BLUE);
 		menuBar.add(admin);
 		
-		JMenuItem addEmployee = new JMenuItem("Add Employee");
+		JMenuItem addEmployee = new JMenuItem("ADD EMPLOYEE");
+		addEmployee.addActionListener(this);
 		admin.add(addEmployee);
 
-		JMenuItem addRooms = new JMenuItem("Add Rooms");
+		JMenuItem addRooms = new JMenuItem("ADD ROOMS");
+		addRooms.addActionListener(this);
 		admin.add(addRooms);
 		
-		JMenuItem addDrivers = new JMenuItem("Add Drivers");
+		JMenuItem addDrivers = new JMenuItem("ADD DRIVERS");
+		addDrivers.addActionListener(this);
 		admin.add(addDrivers);
 		
 		//setUndecorated(true);
@@ -63,7 +67,17 @@ public class DashBoard extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		// when using menuItems we use getActionCommand to write the action
+		// It return a text of a menuItem which we can equate
+		if(e.getActionCommand().equals("ADD EMPLOYEE")) {
+			new AddEmployee();
+		} else if (e.getActionCommand().equals("ADD ROOMS")) {
+			new AddRooms();
+		} else if (e.getActionCommand().equals("ADD DRIVERS")) {
+			
+		} else if (e.getActionCommand().equals("RECEPTION")) {
+			new Reception();
+		}
 	}
 	
 	public static void main(String[] args) {

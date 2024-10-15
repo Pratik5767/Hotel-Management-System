@@ -139,7 +139,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 		add(image);
 
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 
@@ -195,8 +195,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 			
 			connection.statement.executeUpdate(query);
 			JOptionPane.showMessageDialog(null, "Employee added successfully");
-			//setVisible(false);
-			System.exit(0);
+			setVisible(false);
 		} catch (Exception e2) {
 			System.out.println(e);
 		}
