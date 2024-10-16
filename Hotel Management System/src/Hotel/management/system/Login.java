@@ -25,6 +25,7 @@ public class Login extends JFrame implements ActionListener {
 		
 		setBounds(500, 200, 600, 300);
 		getContentPane().setBackground(Color.WHITE);
+		setResizable(false);
 		
 		JLabel user = new JLabel("User Name");
 		user.setBounds(40, 20, 100, 30);

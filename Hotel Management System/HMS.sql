@@ -8,3 +8,5 @@ create table employee(name varchar(25), age varchar(10), gender varchar(15), job
 select * from employee;
 create table rooms(roomNo varchar(10), availableRoom varchar(20), roomStatus varchar(20), roomPrice varchar(20), bedType varchar(20));
 select * from rooms;
+create table customer(document varchar(20), number varchar(30), name varchar(30), gender varchar(15), country varchar(20), room varchar(10), checkintime varchar(80), deposit varchar(20));
+select * from customer;

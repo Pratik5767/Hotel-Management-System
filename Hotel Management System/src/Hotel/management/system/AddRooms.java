@@ -100,7 +100,7 @@ public class AddRooms extends JFrame implements ActionListener {
 		image.setBounds(400, 30, 500, 300);
 		add(image);
 
-		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
 		setVisible(true);
 	}
 

@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -37,7 +38,7 @@ public class DashBoard extends JFrame implements ActionListener {
 		image.add(menuBar);
 		
 		JMenu hotel = new JMenu("Hotel Management");
-		hotel.setForeground(Color.RED);
+		hotel.setForeground(Color.BLUE);
 		menuBar.add(hotel);
 		
 		JMenuItem reception = new JMenuItem("RECEPTION");
@@ -60,8 +61,17 @@ public class DashBoard extends JFrame implements ActionListener {
 		addDrivers.addActionListener(this);
 		admin.add(addDrivers);
 		
-		//setUndecorated(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		JMenu close = new JMenu("Close");
+		close.setForeground(Color.RED);
+		menuBar.add(close);
+		
+		JMenuItem exit = new JMenuItem("Exit Dashboard");
+		exit.addActionListener(this);
+		exit.setBackground(Color.RED);
+		exit.setForeground(Color.WHITE);
+		close.add(exit);
+		
+		setUndecorated(true);
 		setVisible(true);
 	}
 	
@@ -74,9 +84,11 @@ public class DashBoard extends JFrame implements ActionListener {
 		} else if (e.getActionCommand().equals("ADD ROOMS")) {
 			new AddRooms();
 		} else if (e.getActionCommand().equals("ADD DRIVERS")) {
-			
+			new AddDrivers();
 		} else if (e.getActionCommand().equals("RECEPTION")) {
 			new Reception();
+		} else if (e.getActionCommand().equals("Exit Dashboard")) {
+			System.exit(0);
 		}
 	}
 	
