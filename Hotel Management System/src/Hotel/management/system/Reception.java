@@ -30,12 +30,14 @@ public class Reception extends JFrame implements ActionListener {
 		rooms.setBackground(Color.BLACK);
 		rooms.setForeground(Color.WHITE);
 		rooms.setBounds(10, 70, 200, 30);
+		rooms.addActionListener(this);
 		add(rooms);
 
 		department = new JButton("Department");
 		department.setBackground(Color.BLACK);
 		department.setForeground(Color.WHITE);
 		department.setBounds(10, 110, 200, 30);
+		department.addActionListener(this);
 		add(department);
 
 		allEmployee = new JButton("All Employee");
@@ -107,6 +109,12 @@ public class Reception extends JFrame implements ActionListener {
 		if (e.getSource() == newCustomer) {
 			setVisible(false);
 			new AddCustomer().setVisible(true);
+		} else if(e.getSource() == rooms) {
+			setVisible(false);
+			new Room().setVisible(true);
+		} else if(e.getSource() == department) {
+			setVisible(false);
+			new Department().setVisible(true);
 		} else  if (e.getSource() == logout) {
 			setVisible(false);
 		}
