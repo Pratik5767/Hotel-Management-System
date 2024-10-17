@@ -21,7 +21,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 	JTextField nameTextField, ageTextField, salaryTextField, phoneTextField, emailTextField, aadhaarTextField;
 	JRadioButton male, female, other;
 	JComboBox jobList;
-	JButton submit;
+	JButton submit, cancel;
 
 	AddEmployee() {
 		setLayout(null);
@@ -81,8 +81,8 @@ public class AddEmployee extends JFrame implements ActionListener {
 		job.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		add(job);
 
-		String[] jobarr = { "Select", "Front Desk Clerks", "Porters", "Housekeepings", "Kitchen staff", "Room services", "Chefs",
-				"Waiter/Waitress", "Manager", "Accountant" };
+		String[] jobarr = { "Select", "Front Desk Clerks", "Porters", "Housekeepings", "Kitchen staff", "Room services",
+				"Chefs", "Waiter/Waitress", "Manager", "Accountant" };
 		jobList = new JComboBox(jobarr);
 		jobList.setBounds(200, 180, 250, 30);
 		jobList.setBackground(Color.WHITE);
@@ -127,9 +127,16 @@ public class AddEmployee extends JFrame implements ActionListener {
 		submit = new JButton("Submit");
 		submit.setBackground(Color.BLACK);
 		submit.setForeground(Color.WHITE);
-		submit.setBounds(650, 420, 150, 30);
+		submit.setBounds(480, 420, 150, 30);
 		submit.addActionListener(this);
 		add(submit);
+
+		cancel = new JButton("Cancel");
+		cancel.setBackground(Color.BLACK);
+		cancel.setForeground(Color.WHITE);
+		cancel.setBounds(650, 420, 150, 30);
+		cancel.addActionListener(this);
+		add(cancel);
 
 		ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("./icons/tenth.jpg"));
 		Image scaleImg = img.getImage().getScaledInstance(430, 430, Image.SCALE_DEFAULT);
@@ -139,65 +146,64 @@ public class AddEmployee extends JFrame implements ActionListener {
 		add(image);
 
 		setResizable(false);
-		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String name = nameTextField.getText();
-		String age = ageTextField.getText();
-		String salary = salaryTextField.getText();
-		String phone = phoneTextField.getText();
-		String email = emailTextField.getText();
-		String aadhaar = aadhaarTextField.getText();
+		if (e.getSource() == submit) {
+			String name = nameTextField.getText();
+			String age = ageTextField.getText();
+			String salary = salaryTextField.getText();
+			String phone = phoneTextField.getText();
+			String email = emailTextField.getText();
+			String aadhaar = aadhaarTextField.getText();
 
-		String gender = null;
-		if (male.isSelected()) {
-			gender = "male";
-		} else if (female.isSelected()) {
-			gender = "female";
+			String gender = null;
+			if (male.isSelected()) {
+				gender = "male";
+			} else if (female.isSelected()) {
+				gender = "female";
+			} else {
+				gender = "other";
+			}
+
+			String job = (String) jobList.getSelectedItem();
+
+			if (name.equals("")) {
+				JOptionPane.showMessageDialog(null, "Name should not be empty");
+				return;
+			} else if (age.equals("")) {
+				JOptionPane.showMessageDialog(null, "Age should not be empty");
+				return;
+			} else if (salary.equals("")) {
+				JOptionPane.showMessageDialog(null, "Salary should not be empty");
+				return;
+			} else if (phone.equals("")) {
+				JOptionPane.showMessageDialog(null, "Phone should not be empty");
+				return;
+			} else if (email.equals("")) {
+				JOptionPane.showMessageDialog(null, "Email should not be empty");
+				return;
+			} else if (aadhaar.equals("")) {
+				JOptionPane.showMessageDialog(null, "Aadhaar should not be empty");
+				return;
+			}
+
+			try {
+				MyConnection connection = new MyConnection();
+				String query = "insert into employee values ('" + name + "', '" + age + "', '" + gender + "', '" + job
+						+ "', '" + salary + "', '" + phone + "', '" + email + "', '" + aadhaar + "')";
+
+				connection.statement.executeUpdate(query);
+				JOptionPane.showMessageDialog(null, "Employee added successfully");
+				setVisible(false);
+			} catch (Exception e2) {
+				System.out.println(e);
+			}
 		} else {
-			gender = "other";
-		}
-
-		String job = (String) jobList.getSelectedItem();
-		
-		if (name.equals("")) {
-			JOptionPane.showMessageDialog(null, "Name should not be empty");
-			return;
-		}
-		else if (age.equals("")) {
-			JOptionPane.showMessageDialog(null, "Age should not be empty");
-			return;
-		} 
-		else if (salary.equals("")) {
-			JOptionPane.showMessageDialog(null, "Salary should not be empty");
-			return;
-		}
-		else if (phone.equals("")) {
-			JOptionPane.showMessageDialog(null, "Phone should not be empty");
-			return;
-		}
-		else if (email.equals("")) {
-			JOptionPane.showMessageDialog(null, "Email should not be empty");
-			return;
-		}
-		else if (aadhaar.equals("")) {
-			JOptionPane.showMessageDialog(null, "Aadhaar should not be empty");
-			return;
-		}		
-
-		try {
-			MyConnection connection = new MyConnection();
-			String query = "insert into employee values ('" + name + "', '" + age + "', '" + gender + "', '" + job
-					+ "', '" + salary + "', '" + phone + "', '" + email + "', '" + aadhaar + "')";
-			
-			connection.statement.executeUpdate(query);
-			JOptionPane.showMessageDialog(null, "Employee added successfully");
 			setVisible(false);
-		} catch (Exception e2) {
-			System.out.println(e);
 		}
 	}
 
