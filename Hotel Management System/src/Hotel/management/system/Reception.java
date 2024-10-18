@@ -44,18 +44,21 @@ public class Reception extends JFrame implements ActionListener {
 		allEmployee.setBackground(Color.BLACK);
 		allEmployee.setForeground(Color.WHITE);
 		allEmployee.setBounds(10, 150, 200, 30);
+		allEmployee.addActionListener(this);
 		add(allEmployee);
 
 		allCustomer = new JButton("All Customer");
 		allCustomer.setBackground(Color.BLACK);
 		allCustomer.setForeground(Color.WHITE);
 		allCustomer.setBounds(10, 190, 200, 30);
+		allCustomer.addActionListener(this);
 		add(allCustomer);
 
 		managerInfo = new JButton("Manager Info");
 		managerInfo.setBackground(Color.BLACK);
 		managerInfo.setForeground(Color.WHITE);
 		managerInfo.setBounds(10, 230, 200, 30);
+		managerInfo.addActionListener(this);
 		add(managerInfo);
 
 		checkout = new JButton("Checkout");
@@ -86,6 +89,7 @@ public class Reception extends JFrame implements ActionListener {
 		searchRoom.setBackground(Color.BLACK);
 		searchRoom.setForeground(Color.WHITE);
 		searchRoom.setBounds(10, 430, 200, 30);
+		searchRoom.addActionListener(this);
 		add(searchRoom);
 
 		logout = new JButton("Logout");
@@ -109,14 +113,30 @@ public class Reception extends JFrame implements ActionListener {
 		if (e.getSource() == newCustomer) {
 			setVisible(false);
 			new AddCustomer().setVisible(true);
-		} else if(e.getSource() == rooms) {
+		} 
+		else if(e.getSource() == rooms) {
 			setVisible(false);
 			new Room().setVisible(true);
-		} else if(e.getSource() == department) {
+		} 
+		else if(e.getSource() == department) {
 			setVisible(false);
 			new Department().setVisible(true);
-		} else  if (e.getSource() == logout) {
+		} 
+		else  if (e.getSource() == allEmployee) {
 			setVisible(false);
+			new EmployeeInfo().setVisible(true);
+		} 
+		else if (e.getSource() == managerInfo) {
+			setVisible(false);
+			new ManagerInfo().setVisible(true);
+		}
+		else if (e.getSource() == allCustomer) {
+			setVisible(false);
+			new CustomerInfo().setVisible(true);
+		} 
+		else if (e.getSource() == searchRoom) {
+			setVisible(false);
+			new SearchRoom().setVisible(true);
 		}
 	}
 
