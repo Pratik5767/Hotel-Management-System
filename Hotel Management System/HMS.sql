@@ -3,6 +3,7 @@ show databases;
 create database hotelmanagementsystem;
 -- use database
 use hotelmanagementsystem; 
+
 -- creating login table 
 create table login(userName varchar(25), password varchar(25));
 -- inserting values inside login table 
