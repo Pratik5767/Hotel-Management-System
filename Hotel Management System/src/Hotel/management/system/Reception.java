@@ -138,6 +138,10 @@ public class Reception extends JFrame implements ActionListener {
 			setVisible(false);
 			new SearchRoom().setVisible(true);
 		}
+		else if(e.getSource() == updateStatus) {
+			setVisible(false);
+			new UpdateCheck().setVisible(true);
+		}
 	}
 
 	public static void main(String[] args) {
