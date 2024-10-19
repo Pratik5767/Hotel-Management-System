@@ -47,7 +47,6 @@ public class UpdateCheck extends JFrame implements ActionListener {
 			while (res.next()) {
 				customerData.add(res.getString("number"));
 			}
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -175,5 +174,4 @@ public class UpdateCheck extends JFrame implements ActionListener {
 
 		new UpdateCheck();
 	}
-
 }
