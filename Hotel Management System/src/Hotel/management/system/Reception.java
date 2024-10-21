@@ -144,13 +144,10 @@ public class Reception extends JFrame implements ActionListener {
 			setVisible(false);
 			new UpdateCheck().setVisible(true);
 		}
-<<<<<<< HEAD
 		else if(e.getSource() == roomStatus) {
 			setVisible(false);
 			new UpdateRoom().setVisible(true);
 		}
-=======
->>>>>>> branch 'master' of https://github.com/Pratik5767/Hotel-Management-System.git
 	}
 
 	public static void main(String[] args) {

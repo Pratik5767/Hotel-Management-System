@@ -174,8 +174,4 @@ public class UpdateCheck extends JFrame implements ActionListener {
 
 		new UpdateCheck();
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> branch 'master' of https://github.com/Pratik5767/Hotel-Management-System.git
