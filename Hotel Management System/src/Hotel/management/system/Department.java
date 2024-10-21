@@ -68,6 +68,7 @@ public class Department extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		
 		new Department();
+		System.out.println("Hi");
 	}
 
 }
