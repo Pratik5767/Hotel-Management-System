@@ -173,6 +173,5 @@ public class UpdateCheck extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 
 		new UpdateCheck();
-		System.out.println("Hello World");
 	}
 }

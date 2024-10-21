@@ -3,6 +3,7 @@ show databases;
 create database hotelmanagementsystem;
 -- use database
 use hotelmanagementsystem; 
+show tables;
 
 -- creating login table 
 create table login(userName varchar(25), password varchar(25));
@@ -17,6 +18,10 @@ select * from employee;
 -- creating rooms table
 create table rooms(roomNo varchar(10), availableRoom varchar(20), roomStatus varchar(20), roomPrice varchar(20), bedType varchar(20));
 select * from rooms;
+
+-- create driver table
+create table driver(name varchar(20), age varchar(10), gender varchar(15), company varchar(20), brand varchar(20), availability varchar(20), location varchar(40));
+select * from driver;
 
 -- creating customer table
 create table customer(document varchar(20), number varchar(30), name varchar(30), gender varchar(15), country varchar(20), room varchar(10), checkintime varchar(80), deposit varchar(20));

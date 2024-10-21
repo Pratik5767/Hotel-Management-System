@@ -78,6 +78,7 @@ public class Reception extends JFrame implements ActionListener {
 		roomStatus.setBackground(Color.BLACK);
 		roomStatus.setForeground(Color.WHITE);
 		roomStatus.setBounds(10, 350, 200, 30);
+		roomStatus.addActionListener(this);
 		add(roomStatus);
 
 		pickService = new JButton("PickUp Service");
@@ -142,6 +143,10 @@ public class Reception extends JFrame implements ActionListener {
 		else if(e.getSource() == updateStatus) {
 			setVisible(false);
 			new UpdateCheck().setVisible(true);
+		}
+		else if(e.getSource() == roomStatus) {
+			setVisible(false);
+			new UpdateRoom().setVisible(true);
 		}
 	}
 
