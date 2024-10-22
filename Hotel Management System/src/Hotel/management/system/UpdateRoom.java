@@ -150,7 +150,7 @@ public class UpdateRoom extends JFrame implements ActionListener {
 			new Reception().setVisible(true);
 		}
 	}
-
+	
 	public static void main(String[] args) {
 
 		new UpdateRoom();

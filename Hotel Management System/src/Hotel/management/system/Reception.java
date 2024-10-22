@@ -65,6 +65,7 @@ public class Reception extends JFrame implements ActionListener {
 		checkout.setBackground(Color.BLACK);
 		checkout.setForeground(Color.WHITE);
 		checkout.setBounds(10, 270, 200, 30);
+		checkout.addActionListener(this);
 		add(checkout);
 
 		updateStatus = new JButton("Update Status");
@@ -85,6 +86,7 @@ public class Reception extends JFrame implements ActionListener {
 		pickService.setBackground(Color.BLACK);
 		pickService.setForeground(Color.WHITE);
 		pickService.setBounds(10, 390, 200, 30);
+		pickService.addActionListener(this);
 		add(pickService);
 
 		searchRoom = new JButton("Search Room");
@@ -147,6 +149,17 @@ public class Reception extends JFrame implements ActionListener {
 		else if(e.getSource() == roomStatus) {
 			setVisible(false);
 			new UpdateRoom().setVisible(true);
+		}
+		else if(e.getSource() == pickService) {
+			setVisible(false);
+			new SearchDriver().setVisible(true);
+		}
+		else if(e.getSource() == checkout) {
+			setVisible(false);
+			new Checkout().setVisible(true);
+		}
+		else if(e.getSource() == logout) {
+			setVisible(false);
 		}
 	}
 
