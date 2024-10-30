@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class AddCustomer extends JFrame implements ActionListener {
 
-	JComboBox userID;
+	JComboBox<String> userID;
 	JTextField numberTextField, nameTextField, countryTextField, depositTextField;
 	JRadioButton male, female, other;
 	Choice allcatedRooms;
@@ -45,7 +45,7 @@ public class AddCustomer extends JFrame implements ActionListener {
 		add(id);
 
 		String idOption[] = { "Aadhaar", "Passport", "Driving License", "Voter-id card", "Rashan card" };
-		userID = new JComboBox(idOption);
+		userID = new JComboBox<String>(idOption);
 		userID.setBackground(Color.WHITE);
 		userID.setBounds(200, 80, 150, 25);
 		add(userID);
