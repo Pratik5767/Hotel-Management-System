@@ -66,7 +66,7 @@ The **Hotel Management System** is a comprehensive desktop application developed
 ![screen5](https://github.com/user-attachments/assets/9b228827-3267-4ceb-8fcf-80d7454496f4)
 
 
-*Add Customer*
+*Add Employee*
 ![screen6](https://github.com/user-attachments/assets/185e925b-4102-46ef-9052-982e1c03e247)
 
 
