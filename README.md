@@ -64,7 +64,8 @@ The **Hotel Management System** is a comprehensive desktop application developed
 
 
 *Add Drivers*
-![screen7](https://github.com/user-attachments/assets/797a76c7-302d-4701-83a7-987d75792b82)
+![screen8](https://github.com/user-attachments/assets/d2c6b915-470b-440e-8306-8c2c7b337e76)
+
 
 ## Future Enhancements
 - Integration with an online booking system.
