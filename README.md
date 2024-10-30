@@ -3,6 +3,16 @@
 ## Overview
 The **Hotel Management System** is a comprehensive desktop application developed using Core Java and Swing. It is designed to show how hotel administrators and staff manage various hotel operations in an efficient and organized manner. This application includes key features such as room reservations, guest check-in/check-out, billing, housekeeping status tracking, and more, making it ideal for handling the essential operations of any hotel.
 
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Future Enhancements](#future-enhancements)
+- [Contact](#contact)
+
+
 ## Features
 - **Room Management**: Keep track of room availability, manage room types (single, double, suite), and update room statuses.
 - **Reservation and Booking**: Book rooms for guests, view booking history, and manage check-ins and check-outs.
