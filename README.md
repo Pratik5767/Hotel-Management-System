@@ -8,6 +8,7 @@ The **Hotel Management System** is a comprehensive desktop application developed
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Future Enhancements](#future-enhancements)
 - [Contact](#contact)
