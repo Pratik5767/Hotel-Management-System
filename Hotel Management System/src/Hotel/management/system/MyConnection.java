@@ -15,7 +15,7 @@ public class MyConnection {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			// Creating Connection
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelmanagementsystem", "root",
-					"Enter your database name");
+					"Pratik@database");
 			//Creating the statements
 			statement = connection.createStatement();
 			//Executing MySQL queries
